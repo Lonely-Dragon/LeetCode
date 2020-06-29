@@ -85,7 +85,7 @@ public class threeSumClosest {
      * [1,1,-1,-1,3]
      * 3
      */
-    public static int threeSumClosest_2(int[] nums, int target) {
+    public static int threeSumClosest2(int[] nums, int target) {
         if (nums.length == 3) {
             return nums[0] + nums[1] + nums[2];
         }
@@ -95,8 +95,12 @@ public class threeSumClosest {
         int[] tar = {0, 0, 0, 0};
         for (int num : nums) {
             int tmp = num - target;
-            if (tmp >= 0) zheng.add(num);
-            if (tmp < 0) fu.add(num);
+            if (tmp >= 0){
+                zheng.add(num);
+            }
+            if (tmp < 0){
+                fu.add(num);
+            }
             if (tmp >= 0) {
                 for (int i = 0; i < 2; i++) {
                     int i1 = distance[i];
@@ -152,8 +156,9 @@ public class threeSumClosest {
         for (int i = 0; i < tar.length; i++) {
             int a = 0;
             for (int j = 0; j < tar.length; j++) {
-                if (i != j)
+                if (i != j){
                     a += tar[j];
+                }
             }
             if (dis > Math.abs(target - a)) {
                 res = a;
